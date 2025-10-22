@@ -1,16 +1,27 @@
 import {useState, useEffect} from 'react';
 
-function localStorage() {
-
-}
-
-export default function useState(){
+export default function formulario(){
     const [descripcion, setDescripcion] = useState('');
     const [categoria, setCategoria] = useState('');
     const [tipo, setTipo] = useState('');
     const [monto, setMonto] = useState('');
     const [fecha, setFecha] = useState('');
 }
+const guardarEnLocalStorage = () => {
+  const objForm = {
+    descripcion,
+    categoria,
+    tipo,
+    monto,
+    fecha,
+  };
+
+  
+  localStorage.setItem('formData', JSON.stringify(objForm));
+
+  console.log('Datos guardados:', objForm);
+  alert('Datos guardados correctamente');
+
 return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.label}>Descripción:</Text>
@@ -57,3 +68,4 @@ return (
       <Button title="Guardar" onPress={handleSubmit} />
     </ScrollView>
   );
+}

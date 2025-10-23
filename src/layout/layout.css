@@ -1,0 +1,61 @@
+/* --- Reset general --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+  }
+  
+  /* --- Cuerpo general --- */
+  body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f4f6f8;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* --- NAV --- */
+  nav {
+    width: 100%;
+    background-color: #2a9d8f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    padding: 1.5% 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: 0.3s;
+  }
+  
+  nav a:hover {
+    color: #e9c46a;
+    text-decoration: underline;
+  }
+  
+  /* --- MAIN --- */
+  main {
+    width: 100%;
+    background-color: white;
+    padding: 3% 10%;
+    flex: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* --- FOOTER --- */
+  footer {
+    width: 100%;
+    background-color: #264653;
+    color: white;
+    text-align: center;
+    padding: 1.5% 0;
+    font-size: 0.9rem;
+  }

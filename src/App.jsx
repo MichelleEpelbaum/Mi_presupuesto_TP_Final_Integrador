@@ -1,7 +1,7 @@
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Home from "./pages/home";
-import Nuevo from "./pages/nuevo";
-import Layout from "./layout/layout";
+import Nuevo from "./pages/nuevo.jsx";
+import Layout from "./layout/layout.jsx";
 
 const App = () => {
 
@@ -10,6 +10,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
+        <Route index element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />}></Route>
           <Route path="/nuevo" element={<Nuevo />}></Route>
           </Route>

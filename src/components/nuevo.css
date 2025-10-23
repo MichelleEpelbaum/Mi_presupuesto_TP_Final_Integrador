@@ -1,0 +1,49 @@
+/* nuevo.css */
+
+/* Contenedor del formulario */
+div {
+    max-width: 500px;       /* ancho máximo */
+    margin: 50px auto;      /* centrado horizontal y margen superior */
+    padding: 20px;          /* espacio interno */
+    background-color: #f9f9f9; /* color de fondo suave */
+    border-radius: 10px;    /* esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra suave */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Título del formulario */
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Inputs del formulario */
+  input {
+    width: 100%;            /* ancho completo del contenedor */
+    padding: 10px;          /* espacio dentro del input */
+    margin-bottom: 15px;    /* separación entre inputs */
+    border: 1px solid #ccc; /* borde gris */
+    border-radius: 5px;     /* esquinas redondeadas */
+    box-sizing: border-box; /* asegura que padding no rompa ancho */
+    font-size: 16px;
+  }
+  
+  /* Botón de guardar */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50; /* verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover del botón */
+  button:hover {
+    background-color: #45a049;
+  }
+  

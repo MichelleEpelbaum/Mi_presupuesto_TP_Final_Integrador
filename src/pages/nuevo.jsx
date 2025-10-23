@@ -1,71 +1,61 @@
-import {useState, useEffect} from 'react';
+import { useState } from "react";
+import "../components/nuevo.css";
 
-export default function formulario(){
-    const [descripcion, setDescripcion] = useState('');
-    const [categoria, setCategoria] = useState('');
-    const [tipo, setTipo] = useState('');
-    const [monto, setMonto] = useState('');
-    const [fecha, setFecha] = useState('');
-}
-const guardarEnLocalStorage = () => {
-  const objForm = {
-    descripcion,
-    categoria,
-    tipo,
-    monto,
-    fecha,
+export default function Nuevo() {
+  const [descripcion, setDescripcion] = useState('');
+  const [categoria, setCategoria] = useState('');
+  const [tipo, setTipo] = useState('');
+  const [monto, setMonto] = useState('');
+  const [fecha, setFecha] = useState('');
+
+  const guardarEnLocalStorage = () => {
+    const objForm = { descripcion, categoria, tipo, monto, fecha };
+    localStorage.setItem('formData', JSON.stringify(objForm));
+    console.log('Datos guardados:', objForm);
+    alert('Datos guardados correctamente');
   };
 
-  
-  localStorage.setItem('formData', JSON.stringify(objForm));
+  const handleSubmit = (e) => {
+    e.preventDefault(); // previene recarga
+    guardarEnLocalStorage();
+  };
 
-  console.log('Datos guardados:', objForm);
-  alert('Datos guardados correctamente');
-
-return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.label}>Descripción:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Escribe la descripción"
-        value={descripcion}
-        onChangeText={setDescripcion}
-      />
-
-      <Text style={styles.label}>Categoría:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Escribe la categoría"
-        value={categoria}
-        onChangeText={setCategoria}
-      />
-
-      <Text style={styles.label}>Tipo:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Escribe el tipo"
-        value={tipo}
-        onChangeText={setTipo}
-      />
-
-      <Text style={styles.label}>Monto:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Escribe el monto"
-        keyboardType="numeric"
-        value={monto}
-        onChangeText={setMonto}
-      />
-
-      <Text style={styles.label}>Fecha:</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Escribe la fecha (ej: 2025-10-17)"
-        value={fecha}
-        onChangeText={setFecha}
-      />
-
-      <Button title="Guardar" onPress={handleSubmit} />
-    </ScrollView>
+  return (
+    <div>
+      <h2>Formulario</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Descripción"
+          value={descripcion}
+          onChange={(e) => setDescripcion(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Categoría"
+          value={categoria}
+          onChange={(e) => setCategoria(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Tipo"
+          value={tipo}
+          onChange={(e) => setTipo(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Monto"
+          value={monto}
+          onChange={(e) => setMonto(e.target.value)}
+        />
+        <input
+          type="date"
+          placeholder="Fecha"
+          value={fecha}
+          onChange={(e) => setFecha(e.target.value)}
+        />
+        <button type="submit">Guardar</button>
+      </form>
+    </div>
   );
 }

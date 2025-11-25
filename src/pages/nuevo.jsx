@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../components/nuevo.css";
 import { useNavigate } from "react-router-dom"
 
+
 export default function Nuevo() {
   const [descripcion, setDescripcion] = useState('');
   const [categoria, setCategoria] = useState('');
@@ -9,13 +10,16 @@ export default function Nuevo() {
   const [monto, setMonto] = useState('');
   const [fecha, setFecha] = useState('');
 
+
   const navigate = useNavigate()
+
 
   const validarFormulario = () => {
     if (!descripcion || descripcion.trim().length < 3) {
       alert("La descripción es obligatoria y debe tener al menos 3 caracteres.");
       return false;
     }
+
 
     if (!categoria) {
       alert("Debe seleccionar una categoría.");
@@ -26,10 +30,12 @@ export default function Nuevo() {
       return false;
     }
 
+
     if (!monto || isNaN(monto) || Number(monto) <= 0) {
       alert("El monto debe ser un número positivo.");
       return false;
     }
+
 
     const hoy = new Date().toISOString().split("T")[0];
     if (!fecha) {
@@ -41,8 +47,10 @@ export default function Nuevo() {
       return false;
     }
 
+
     return true;
   };
+
 
   const guardarEnLocalStorage = () => {
     const nuevo = { descripcion, categoria, tipo, monto, fecha };
@@ -51,15 +59,20 @@ export default function Nuevo() {
   localStorage.setItem('tareas', JSON.stringify(guardados));
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault(); 
 
+
     if (!validarFormulario()) return;
+
 
     guardarEnLocalStorage();
 
+
     navigate("/")
   };
+
 
   return (
     <div className="contenedor-formulario">
@@ -72,12 +85,14 @@ export default function Nuevo() {
           onChange={(e) => setDescripcion(e.target.value)}
         />
 
+
         <input
           type="text"
           placeholder="Categoria"
           value={categoria}
           onChange={(e) => setCategoria(e.target.value)}
         />
+
 
         {/* TIPO SELECT */}
         <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
@@ -86,6 +101,7 @@ export default function Nuevo() {
           <option value="gasto">Gasto</option>
         </select>
 
+
         <input
           type="number"
           placeholder="Monto"
@@ -93,12 +109,14 @@ export default function Nuevo() {
           onChange={(e) => setMonto(e.target.value)}
         />
 
+
         <input
           type="date"
           placeholder="Fecha"
           value={fecha}
           onChange={(e) => setFecha(e.target.value)}
         />
+
 
         <button type="submit">Guardar</button>
       </form>

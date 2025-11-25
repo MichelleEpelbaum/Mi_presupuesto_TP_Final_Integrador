@@ -45,11 +45,10 @@ export default function Nuevo() {
   };
 
   const guardarEnLocalStorage = () => {
-    const objetoForm = { descripcion, categoria, tipo, monto, fecha };
-    console.log(objetoForm)
-    localStorage.setItem('formData', JSON.stringify(objetoForm));
-    console.log('Datos guardados:', objetoForm);
-    alert('Datos guardados correctamente');
+    const nuevo = { descripcion, categoria, tipo, monto, fecha };
+  const guardados = JSON.parse(localStorage.getItem('tareas')) || [];
+  guardados.push(nuevo);
+  localStorage.setItem('tareas', JSON.stringify(guardados));
   };
 
   const handleSubmit = (e) => {
@@ -63,7 +62,7 @@ export default function Nuevo() {
   };
 
   return (
-    <div>
+    <div className="contenedor-formulario">
       <h2>Formulario</h2>
       <form onSubmit={handleSubmit}>
         <input
